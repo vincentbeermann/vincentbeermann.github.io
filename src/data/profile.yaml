@@ -1,0 +1,46 @@
+# ============================================================
+# profile.yaml — Bio, Rollen, Links. EN und DE nebeneinander:
+# eine Datei anfassen, beide Sprachen hier ändern, pushen.
+# ============================================================
+
+name: Vincent Beermann
+degree: Dr.
+email: vincent.beermann@hpi.de
+location: Potsdam / Berlin
+
+links:
+  linkedin: https://www.linkedin.com/in/vincentbeermann
+  github: https://github.com/vincentbeermann
+
+roles:
+  - en: Postdoctoral Researcher & Interim Chair, Design Thinking and Innovation Research, Hasso Plattner Institute, University of Potsdam
+    de: Postdoktorand & Lehrstuhlvertretung, Design Thinking and Innovation Research, Hasso-Plattner-Institut, Universität Potsdam
+  - en: Affiliated Researcher, MIT Media Lab (Fluid Interfaces)
+    de: Affiliated Researcher, MIT Media Lab (Fluid Interfaces)
+
+tagline:
+  en: I study how design changes behavior.
+  de: Ich erforsche, wie Design Verhalten verändert.
+
+bio:
+  en: >-
+    I am a psychologist and information systems researcher working at the
+    intersection of behavioral science and design. My research focuses on
+    digital nudging and choice architecture, large-scale field experiments
+    on energy and water conservation, and how AI changes the way we decide
+    and work. I completed my PhD at the Hasso Plattner Institute (summa cum
+    laude), where I now lead the Design Thinking and Innovation Research
+    group on an interim basis, and I collaborate with the Fluid Interfaces
+    group at the MIT Media Lab. Outside academia, I co-founded Menura Audio,
+    a modular DJ mixer.
+  de: >-
+    Ich bin Psychologe und Wirtschaftsinformatik-Forscher an der
+    Schnittstelle von Verhaltenswissenschaft und Design. Meine Forschung
+    umfasst digitales Nudging und Entscheidungsarchitektur, großangelegte
+    Feldexperimente zu Energie- und Wassersparen sowie die Frage, wie KI
+    unser Entscheiden und Arbeiten verändert. Promoviert habe ich am
+    Hasso-Plattner-Institut (summa cum laude), wo ich derzeit das Fachgebiet
+    Design Thinking and Innovation Research vertretungsweise leite; zudem
+    forsche ich mit der Fluid-Interfaces-Gruppe am MIT Media Lab. Neben der
+    Wissenschaft habe ich Menura Audio mitgegründet, einen modularen
+    DJ-Mixer.

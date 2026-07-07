@@ -1,0 +1,64 @@
+# ============================================================
+# services.yaml — Freiberufliches Angebot. EN/DE nebeneinander.
+# ============================================================
+
+intro:
+  en: >-
+    I work with organizations that want to understand how people actually
+    decide — and how to design technology, products, and AI systems
+    accordingly.
+  de: >-
+    Ich arbeite mit Organisationen, die verstehen wollen, wie Menschen
+    tatsächlich entscheiden — und wie man Technologie, Produkte und
+    KI-Systeme entsprechend gestaltet.
+
+services:
+  - id: keynotes
+    title:
+      en: Keynotes & Talks
+      de: Keynotes & Vorträge
+    description:
+      en: >-
+        Evidence-based talks on behavioral design, digital nudging, and how
+        AI shapes human decision-making — engaging for executive audiences,
+        grounded in current research.
+      de: >-
+        Evidenzbasierte Vorträge zu Behavioral Design, digitalem Nudging und
+        dem Einfluss von KI auf menschliches Entscheiden — zugänglich für
+        Führungskräfte, fundiert in aktueller Forschung.
+
+  - id: workshops
+    title:
+      en: Workshops & Executive Education
+      de: Workshops & Executive Education
+    description:
+      en: >-
+        Hands-on formats on design thinking, behavioral design, and working
+        with AI — from half-day sessions to multi-day executive programs.
+      de: >-
+        Praxisformate zu Design Thinking, Behavioral Design und dem Arbeiten
+        mit KI — vom Halbtages-Workshop bis zum mehrtägigen
+        Executive-Programm.
+
+  - id: advisory
+    title:
+      en: Advisory
+      de: Beratung
+    description:
+      en: >-
+        Scientific advice for teams building products that change behavior:
+        intervention design, choice architecture reviews, and rigorous
+        evaluation — including field experiments.
+      de: >-
+        Wissenschaftliche Begleitung für Teams, deren Produkte Verhalten
+        verändern sollen: Interventionsdesign, Review von
+        Entscheidungsarchitekturen und saubere Evaluation — bis hin zum
+        Feldexperiment.
+
+# Organisationen, für die Vincent gesprochen/gearbeitet hat (Social Proof).
+engagements:
+  - Deutsche Bundesbank
+  - Sparkassen-Finanzgruppe
+  - Max Planck Institute for Human Development
+  - University of St. Gallen (HSG)
+  - Hasso Plattner Institute

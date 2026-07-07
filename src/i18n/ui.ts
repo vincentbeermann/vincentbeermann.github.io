@@ -1,0 +1,63 @@
+export const locales = ['en', 'de'] as const;
+export type Locale = (typeof locales)[number];
+export const defaultLocale: Locale = 'en';
+
+export const ui = {
+  en: {
+    'nav.home': 'Home',
+    'nav.research': 'Research',
+    'nav.speaking': 'Speaking & Workshops',
+    'nav.contact': 'Contact',
+    'home.selected': 'Selected publications',
+    'home.allPublications': 'All publications',
+    'home.workWithMe': 'Work with me',
+    'pubs.title': 'Publications',
+    'pubs.underReview': 'Under review & working papers',
+    'pubs.statusUnderReview': 'under review',
+    'pubs.statusWorkingPaper': 'working paper',
+    'talks.title': 'Speaking & Workshops',
+    'talks.past': 'Past engagements',
+    'talks.enquiry': 'Enquire about a talk or workshop',
+    'contact.title': 'Contact',
+    'footer.imprint': 'Imprint',
+    'footer.privacy': 'Privacy',
+    'lang.switch': 'Deutsch',
+    'lang.switchTo': '/de/',
+  },
+  de: {
+    'nav.home': 'Start',
+    'nav.research': 'Forschung',
+    'nav.speaking': 'Vorträge & Workshops',
+    'nav.contact': 'Kontakt',
+    'home.selected': 'Ausgewählte Publikationen',
+    'home.allPublications': 'Alle Publikationen',
+    'home.workWithMe': 'Zusammenarbeit',
+    'pubs.title': 'Publikationen',
+    'pubs.underReview': 'Under Review & Working Papers',
+    'pubs.statusUnderReview': 'under review',
+    'pubs.statusWorkingPaper': 'Working Paper',
+    'talks.title': 'Vorträge & Workshops',
+    'talks.past': 'Bisherige Auftritte',
+    'talks.enquiry': 'Vortrag oder Workshop anfragen',
+    'contact.title': 'Kontakt',
+    'footer.imprint': 'Impressum',
+    'footer.privacy': 'Datenschutz',
+    'lang.switch': 'English',
+    'lang.switchTo': '/',
+  },
+} as const;
+
+export type UiKey = keyof (typeof ui)['en'];
+
+export function t(locale: Locale, key: UiKey): string {
+  return ui[locale][key] ?? ui.en[key];
+}
+
+/** Pfad für die jeweils andere Sprache (einfaches Mapping /x ↔ /de/x). */
+export function altLocalePath(pathname: string, locale: Locale): string {
+  if (locale === 'en') {
+    return pathname === '/' ? '/de/' : `/de${pathname}`;
+  }
+  const stripped = pathname.replace(/^\/de/, '');
+  return stripped === '' || stripped === '/' ? '/' : stripped;
+}
