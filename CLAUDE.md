@@ -69,14 +69,20 @@ sprachneutral (keine Übersetzung nötig).
   `notes` sind für v2 vorbereitet (Collections definiert, Seiten fehlen).
 - Seiten: dünne Wrapper in `src/pages/` (EN) und `src/pages/de/` rufen
   gemeinsame Komponenten in `src/components/pages/` mit `locale`-Prop auf.
-- Design-Tokens: `src/styles/tokens.css` (Farben via `light-dark()`,
-  fluide Typo via `clamp()`). Kein Tailwind, kein JS-Runtime.
+- Design-Tokens: `src/styles/tokens.css` — bewusst NUR Light Mode
+  (Vincents Entscheidung 2026-07-07: „heller & verspielter"). Warmes
+  Papier, Marker-Gelb (`<mark>` in der Hero-Tagline, Wort via
+  `tagline_highlight` in profile.yaml), Koralle-CTAs, Pastell-Tints auf
+  leicht gekippten Karten (`ServiceCards.astro`). Kein Tailwind, kein
+  JS-Runtime. KEINE Design-Fußnoten/Meta-Erklärungen — gab es in v1,
+  Vincent hat sie explizit rausgeworfen.
 - Fonts: Fontsource-Pakete (Space Grotesk + Inter, variable), self-hosted
   — KEINE externen Requests einführen (DSGVO; Datenschutzerklärung
   verspricht null Drittdienste, keine Cookies, kein Tracking).
-- „Design-Fußnoten" (`DesignNote.astro`): nummerierte Marginalien, die
-  Behavioral-Design-Prinzipien der Seite selbst erklären. Nummern 1–3
-  vergeben (Home ×2, Talks ×1).
+- Coaching-Angebot: „Executive Coaching" gemäß Praxis-Aufbau-Plan
+  (~/Downloads/praxis-aufbau.html, Stand 07/2026): Führungskräfte-Fokus,
+  psychologisch fundiert/systemisch, KEIN generisches Life-Coaching,
+  KEINE Heilkunde-/Therapie-Sprache vor Approbation (erwartet ~Okt 2027+).
 
 ## Lokal entwickeln
 
@@ -102,3 +108,6 @@ npm run preview    # gebauten Stand ansehen
 - Pages-Deploy von Branch-Build auf GitHub Actions umgestellt (Node 22).
 - Publikationen aus Zotero befüllt (10 Einträge), 3 Talks, Profil/Angebot
   EN+DE, Impressum+Datenschutz, Design „Choice Architecture".
+- Redesign nach Vincents Feedback: Design-Fußnoten entfernt, Light-only
+  + verspielte Farbwelt (Marker, Tints, gekippte Karten), Executive
+  Coaching als viertes Angebot (Quelle: Praxis-Aufbau-Plan aus Downloads).
