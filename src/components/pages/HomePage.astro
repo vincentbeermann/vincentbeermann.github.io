@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import DesignNote from '../DesignNote.astro';
 import PublicationList from '../PublicationList.astro';
+import ServiceCards from '../ServiceCards.astro';
 import profile from '../../data/profile.yaml';
 import services from '../../data/services.yaml';
 import { t, type Locale } from '../../i18n/ui';
@@ -28,31 +28,38 @@ const title =
     : 'Vincent Beermann — Behavioral Design & KI-Forschung';
 const description = p.tagline[locale] + ' — ' + p.roles[0][locale];
 
-const note1 =
-  locale === 'en'
-    ? "Large type is salience at work — you read this sentence first. That's the point."
-    : 'Große Schrift ist Salienz in Aktion — Sie haben diesen Satz zuerst gelesen. Genau darum geht es.';
-const note2 =
-  locale === 'en'
-    ? 'Three options, not seven. Too much choice paralyzes — behavioral scientists call it choice overload.'
-    : 'Drei Optionen, nicht sieben. Zu viel Auswahl lähmt — Verhaltenswissenschaftler nennen das Choice Overload.';
+// Tagline mit Textmarker auf dem Schlüsselwort
+const tagline: string = p.tagline[locale];
+const highlight: string = p.tagline_highlight[locale];
+const hlIndex = tagline.indexOf(highlight);
+const taglineParts =
+  hlIndex >= 0
+    ? {
+        before: tagline.slice(0, hlIndex),
+        mark: highlight,
+        after: tagline.slice(hlIndex + highlight.length),
+      }
+    : { before: tagline, mark: '', after: '' };
+
+const chips = ['Behavioral Design', 'Digital Nudging', 'Human-AI Interaction'];
 ---
 
 <Base locale={locale} title={title} description={description}>
   <main>
     <section class="hero">
       <div class="container">
-        <p class="eyebrow">
-          Behavioral Design · Digital Nudging · Human-AI Interaction
-        </p>
-        <h1 class="hero-tagline">{p.tagline[locale]}</h1>
+        <ul class="chips" aria-label={locale === 'en' ? 'Topics' : 'Themen'}>
+          {chips.map((c) => <li class="chip">{c}</li>)}
+        </ul>
+        <h1 class="hero-tagline">
+          {taglineParts.before}{taglineParts.mark && <mark>{taglineParts.mark}</mark>}{taglineParts.after}
+        </h1>
         <div class="hero-sub">
           <p class="hero-name">Dr. Vincent Beermann</p>
           <ul class="hero-roles">
             {roles.map((r) => <li>{r}</li>)}
           </ul>
         </div>
-        <DesignNote n={1} text={note1} />
       </div>
     </section>
 
@@ -78,18 +85,8 @@ const note2 =
       <div class="container">
         <h2 class="section-title">{t(locale, 'home.workWithMe')}</h2>
         <p class="work-intro">{s.intro[locale]}</p>
-        <div class="service-grid">
-          {
-            s.services.map((svc: any) => (
-              <article class="service-card reveal">
-                <h3>{svc.title[locale]}</h3>
-                <p>{svc.description[locale]}</p>
-              </article>
-            ))
-          }
-        </div>
+        <ServiceCards services={s.services} locale={locale} />
         <div class="work-foot">
-          <DesignNote n={2} text={note2} />
           <a class="cta" href={locale === 'en' ? '/talks' : '/de/talks'}>
             {t(locale, 'talks.title')} →
           </a>
@@ -102,6 +99,36 @@ const note2 =
 <style>
   .hero {
     padding-block: var(--space-3xl) var(--space-2xl);
+  }
+
+  .chips {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .chip {
+    font-family: var(--font-display);
+    font-size: var(--text-small);
+    font-weight: 500;
+    padding: 0.25rem 0.85rem;
+    border: 2px solid var(--color-line-strong);
+    border-radius: 999px;
+  }
+
+  .chip:nth-child(3n + 1) {
+    background: var(--tint-blue);
+    transform: rotate(-1.5deg);
+  }
+  .chip:nth-child(3n + 2) {
+    background: var(--tint-coral);
+    transform: rotate(1deg);
+  }
+  .chip:nth-child(3n + 3) {
+    background: var(--tint-yellow);
+    transform: rotate(-0.5deg);
   }
 
   .hero-tagline {
@@ -117,7 +144,6 @@ const note2 =
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-s) var(--space-2xl);
-    margin-bottom: var(--space-xl);
   }
 
   .hero-name {
@@ -173,60 +199,28 @@ const note2 =
     margin-bottom: var(--space-xl);
   }
 
-  .service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: var(--space-m);
-  }
-
-  .service-card {
-    border: 1px solid var(--color-line-strong);
-    border-radius: 4px;
-    padding: var(--space-l);
-    background: var(--color-paper-raised);
-    transition:
-      transform var(--duration-fast) var(--ease-out),
-      box-shadow var(--duration-fast) var(--ease-out);
-  }
-
-  .service-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 0 0 var(--color-accent);
-  }
-
-  .service-card h3 {
-    font-size: var(--text-lead);
-    margin-bottom: var(--space-s);
-  }
-
-  .service-card p {
-    color: var(--color-ink-soft);
-    font-size: var(--text-small);
-    line-height: 1.55;
-  }
-
   .work-foot {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-l);
     margin-top: var(--space-xl);
   }
 
   .cta {
+    display: inline-block;
     font-family: var(--font-display);
     font-weight: 600;
     text-decoration: none;
-    background: var(--color-accent);
-    color: var(--color-accent-ink);
+    background: var(--color-pop);
+    color: var(--color-ink);
+    border: 2px solid var(--color-line-strong);
     padding: 0.8rem 1.6rem;
-    border-radius: 4px;
-    transition: filter var(--duration-fast) var(--ease-out);
+    border-radius: 999px;
+    transition:
+      transform var(--duration-fast) var(--ease-bounce),
+      box-shadow var(--duration-fast) var(--ease-out);
   }
 
   .cta:hover {
-    color: var(--color-accent-ink);
-    filter: brightness(1.15);
+    color: var(--color-ink);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sticker);
   }
 </style>

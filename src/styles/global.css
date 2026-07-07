@@ -74,8 +74,24 @@
   }
 
   ::selection {
-    background: var(--color-accent);
-    color: var(--color-accent-ink);
+    background: var(--color-marker);
+    color: var(--color-ink);
+  }
+
+  /* Textmarker-Highlight (Hero-Tagline u.ä.) */
+  mark {
+    background: linear-gradient(
+      104deg,
+      transparent 0.9%,
+      var(--color-marker) 2.4%,
+      var(--color-marker) 97.8%,
+      transparent 99%
+    );
+    color: inherit;
+    padding-inline: 0.08em;
+    border-radius: 0.12em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   :focus-visible {

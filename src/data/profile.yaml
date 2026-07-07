@@ -22,6 +22,11 @@ tagline:
   en: I study how design changes behavior.
   de: Ich erforsche, wie Design Verhalten verändert.
 
+# Wort aus der Tagline, das den Textmarker bekommt
+tagline_highlight:
+  en: behavior
+  de: Verhalten
+
 bio:
   en: >-
     I am a psychologist and information systems researcher. My work connects

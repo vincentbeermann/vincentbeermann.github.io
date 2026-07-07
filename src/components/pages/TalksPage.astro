@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import DesignNote from '../DesignNote.astro';
+import ServiceCards from '../ServiceCards.astro';
 import services from '../../data/services.yaml';
 import profile from '../../data/profile.yaml';
 import { t, type Locale } from '../../i18n/ui';
@@ -21,8 +21,8 @@ const talks = (await getCollection('talks')).sort(
 
 const title =
   locale === 'en'
-    ? 'Speaking & Workshops — Vincent Beermann'
-    : 'Vorträge & Workshops — Vincent Beermann';
+    ? 'Speaking, Workshops & Coaching — Vincent Beermann'
+    : 'Vorträge, Workshops & Coaching — Vincent Beermann';
 const description = s.intro[locale];
 
 const kindLabel: Record<string, { en: string; de: string }> = {
@@ -33,13 +33,10 @@ const kindLabel: Record<string, { en: string; de: string }> = {
   lecture: { en: 'Lecture', de: 'Vorlesung' },
 };
 
-const note3 =
-  locale === 'en'
-    ? 'One blue button, no contact form. Every extra field costs response rates — friction is the quietest behavior killer.'
-    : 'Ein blauer Button, kein Kontaktformular. Jedes zusätzliche Feld kostet Rücklauf — Reibung ist der leiseste Verhaltenskiller.';
-
 const mailSubject =
-  locale === 'en' ? 'Talk / workshop enquiry' : 'Anfrage Vortrag / Workshop';
+  locale === 'en'
+    ? 'Talk / workshop / coaching enquiry'
+    : 'Anfrage Vortrag / Workshop / Coaching';
 
 const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
   year: 'numeric',
@@ -55,22 +52,12 @@ const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
         <p class="lead">{s.intro[locale]}</p>
       </header>
 
-      <div class="service-grid">
-        {
-          s.services.map((svc: any) => (
-            <article class="service-card reveal">
-              <h2>{svc.title[locale]}</h2>
-              <p>{svc.description[locale]}</p>
-            </article>
-          ))
-        }
-      </div>
+      <ServiceCards services={s.services} locale={locale} headingLevel="h2" />
 
       <div class="enquiry">
         <a class="cta" href={`mailto:${email}?subject=${encodeURIComponent(mailSubject)}`}>
           {t(locale, 'talks.enquiry')}
         </a>
-        <DesignNote n={3} text={note3} />
       </div>
 
       <section class="past">
@@ -87,7 +74,9 @@ const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
                   </p>
                   <p class="talk-title">
                     {talk.data.url ? <a href={talk.data.url}>{talk.data.title}</a> : talk.data.title}
-                    <span class="talk-kind">{kindLabel[talk.data.kind][locale]}</span>
+                    <span class={`talk-kind kind-${talk.data.kind}`}>
+                      {kindLabel[talk.data.kind][locale]}
+                    </span>
                   </p>
                 </div>
               </li>
@@ -109,6 +98,7 @@ const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
     font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: var(--space-m);
+    max-width: 18ch;
   }
 
   .lead {
@@ -117,52 +107,29 @@ const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
     color: var(--color-ink-soft);
   }
 
-  .service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: var(--space-m);
-  }
-
-  .service-card {
-    border: 1px solid var(--color-line-strong);
-    border-radius: 4px;
-    padding: var(--space-l);
-    background: var(--color-paper-raised);
-  }
-
-  .service-card h2 {
-    font-size: var(--text-lead);
-    margin-bottom: var(--space-s);
-  }
-
-  .service-card p {
-    color: var(--color-ink-soft);
-    font-size: var(--text-small);
-    line-height: 1.55;
-  }
-
   .enquiry {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-l);
     margin-block: var(--space-xl) var(--space-2xl);
   }
 
   .cta {
+    display: inline-block;
     font-family: var(--font-display);
     font-weight: 600;
     text-decoration: none;
-    background: var(--color-accent);
-    color: var(--color-accent-ink);
+    background: var(--color-pop);
+    color: var(--color-ink);
+    border: 2px solid var(--color-line-strong);
     padding: 0.8rem 1.6rem;
-    border-radius: 4px;
-    transition: filter var(--duration-fast) var(--ease-out);
+    border-radius: 999px;
+    transition:
+      transform var(--duration-fast) var(--ease-bounce),
+      box-shadow var(--duration-fast) var(--ease-out);
   }
 
   .cta:hover {
-    color: var(--color-accent-ink);
-    filter: brightness(1.15);
+    color: var(--color-ink);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sticker);
   }
 
   .past {
@@ -220,12 +187,28 @@ const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
   .talk-kind {
     display: inline-block;
     margin-left: var(--space-xs);
-    padding: 0.05rem 0.55rem;
-    border: 1px solid var(--color-line-strong);
+    padding: 0.1rem 0.6rem;
+    border: 1.5px solid var(--color-line-strong);
     border-radius: 999px;
+    font-family: var(--font-display);
     font-size: var(--text-tiny);
+    font-weight: 500;
     color: var(--color-ink);
     white-space: nowrap;
+  }
+
+  .kind-keynote {
+    background: var(--tint-coral);
+  }
+  .kind-talk {
+    background: var(--tint-blue);
+  }
+  .kind-workshop {
+    background: var(--tint-green);
+  }
+  .kind-panel,
+  .kind-lecture {
+    background: var(--tint-yellow);
   }
 
   @media (max-width: 40rem) {

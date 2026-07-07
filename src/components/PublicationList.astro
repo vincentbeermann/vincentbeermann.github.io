@@ -100,10 +100,13 @@ const { pubs, locale } = Astro.props;
   .pub-badge {
     display: inline-block;
     margin-left: var(--space-xs);
-    padding: 0.05rem 0.55rem;
-    border: 1px solid var(--color-accent);
+    padding: 0.1rem 0.6rem;
+    border: 1.5px solid var(--color-line-strong);
     border-radius: 999px;
-    color: var(--color-accent);
+    background: var(--tint-yellow);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-weight: 500;
     font-size: var(--text-tiny);
     white-space: nowrap;
   }

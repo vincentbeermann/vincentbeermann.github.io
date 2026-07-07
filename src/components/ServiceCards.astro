@@ -1,0 +1,93 @@
+---
+import type { Locale } from '../i18n/ui';
+
+interface Service {
+  id: string;
+  title: Record<string, string>;
+  description: Record<string, string>;
+}
+
+interface Props {
+  services: Service[];
+  locale: Locale;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { services, locale, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+---
+
+<div class="service-grid">
+  {
+    services.map((svc) => (
+      <article class="service-card reveal">
+        <Heading class="service-title">{svc.title[locale]}</Heading>
+        <p>{svc.description[locale]}</p>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-l) var(--space-m);
+  }
+
+  @media (min-width: 42rem) {
+    .service-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .service-card {
+    border: 2px solid var(--color-line-strong);
+    border-radius: var(--radius);
+    padding: var(--space-l);
+    transition:
+      transform var(--duration-fast) var(--ease-bounce),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  /* Jede Karte: eigene Pastellfarbe + leichte Kippung — verspielt, nicht chaotisch */
+  .service-card:nth-child(4n + 1) {
+    background: var(--tint-blue);
+    transform: rotate(-1.1deg);
+  }
+  .service-card:nth-child(4n + 2) {
+    background: var(--tint-coral);
+    transform: rotate(0.9deg);
+  }
+  .service-card:nth-child(4n + 3) {
+    background: var(--tint-yellow);
+    transform: rotate(-0.7deg);
+  }
+  .service-card:nth-child(4n + 4) {
+    background: var(--tint-green);
+    transform: rotate(1.2deg);
+  }
+
+  .service-card:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: var(--shadow-sticker);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-card:hover {
+      transform: none;
+    }
+  }
+
+  .service-title {
+    font-size: var(--text-lead);
+    margin-bottom: var(--space-s);
+  }
+
+  .service-card p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+</style>

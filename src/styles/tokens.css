@@ -1,22 +1,30 @@
 /* ============================================================
-   tokens.css — Design-Token-System „Choice Architecture"
-   Papier + Tinte + ein Klein-Blau-Akzent. Dark Mode automatisch
-   über light-dark(), null JS.
+   tokens.css — Design-Token-System, hell & verspielt.
+   Warmes Papier, Tinte, drei Akzentfarben + Pastell-Tints.
+   Bewusst NUR Light Mode (Entscheidung 2026-07-07).
    ============================================================ */
 
 @layer tokens {
   :root {
-    color-scheme: light dark;
+    color-scheme: light;
 
     /* --- Farben (semantisch) --- */
-    --color-paper: light-dark(#faf7f2, #131211);
-    --color-paper-raised: light-dark(#ffffff, #1b1a18);
-    --color-ink: light-dark(#171410, #f0ece4);
-    --color-ink-soft: light-dark(#5c574e, #a8a196);
-    --color-accent: light-dark(#0031e3, #5d7cff);
-    --color-accent-ink: light-dark(#ffffff, #0a0a14);
-    --color-line: light-dark(#e3ddd2, #2e2c28);
-    --color-line-strong: light-dark(#171410, #f0ece4);
+    --color-paper: #fbf6ee;
+    --color-paper-raised: #ffffff;
+    --color-ink: #1a1611;
+    --color-ink-soft: #5f584c;
+    --color-accent: #0031e3; /* Klein-Blau */
+    --color-accent-ink: #ffffff;
+    --color-pop: #ff5c39; /* Koralle — CTAs */
+    --color-marker: #ffd84d; /* Textmarker-Gelb */
+    --color-line: #e8e0d2;
+    --color-line-strong: #1a1611;
+
+    /* Pastell-Tints für Karten & Chips */
+    --tint-blue: #e3eaff;
+    --tint-coral: #ffe5dc;
+    --tint-yellow: #fff1c2;
+    --tint-green: #dff2e0;
 
     /* --- Typografie --- */
     --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
@@ -49,9 +57,12 @@
     --width-content: 72rem;
     --width-prose: 44rem;
     --gutter: clamp(1.25rem, 4vw, 3rem);
+    --radius: 14px;
+    --shadow-sticker: 5px 5px 0 0 var(--color-ink);
 
     /* --- Motion --- */
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     --duration-fast: 160ms;
     --duration-slow: 480ms;
   }
