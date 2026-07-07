@@ -102,6 +102,15 @@ npm run preview    # gebauten Stand ansehen
 
 ## Log
 
+### 2026-07-08
+- Publikationen 10 → 15, Talks 3 → 6: abgeglichen gegen CV
+  (`~/Documents/passive/admin-hpi-chair/misc/CV_VB.pdf`), DBLP, arXiv,
+  CrossRef, Semantic Scholar. Diss (DOI), NeuroIS 2024, ECIS 2025,
+  2 arXiv-Preprints, AOM-Best-Paper-Badge, AISeL-Links. Talk-Daten jetzt
+  CV-verifiziert (Münster Nov 2025, MPI-Titel korrigiert; SFU/DB/BCG neu).
+  ResearchGate nicht direkt abfragbar (Bot-Schutz) — DBLP/arXiv/AISeL
+  decken dasselbe ab.
+
 ### 2026-07-07
 - Kompletter Neubau als Astro-7-Site (vorher: Hugo-Template-Fork von Nov
   2023 mit fremdem Demo-Content, gesichert auf `legacy-hugo`).
