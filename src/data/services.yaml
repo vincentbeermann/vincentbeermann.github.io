@@ -71,10 +71,12 @@ services:
         Entscheidungsarchitekturen und saubere Evaluation — bis hin zum
         Feldexperiment.
 
-# Organisationen, für die Vincent gesprochen/gearbeitet hat (Social Proof).
+# Organisationen, für die Vincent gesprochen/gearbeitet hat (Social Proof, Quelle: CV).
 engagements:
   - Deutsche Bundesbank
+  - Deutsche Bahn
+  - Boston Consulting Group
   - Sparkassen-Finanzgruppe
   - Max Planck Institute for Human Development
+  - Simon Fraser University
   - University of St. Gallen (HSG)
-  - Hasso Plattner Institute

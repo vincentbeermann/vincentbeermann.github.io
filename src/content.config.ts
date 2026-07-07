@@ -11,10 +11,11 @@ const publications = defineCollection({
     year: z.number().int(),
     venue: z.string().optional(),
     type: z.string(),
-    status: z.enum(['under-review', 'working-paper']).optional(),
+    status: z.enum(['under-review', 'working-paper', 'preprint']).optional(),
     doi: z.string().optional(),
     url: z.url().optional(),
     pdf: z.string().optional(),
+    award: z.string().optional(),
     selected: z.boolean().default(false),
   }),
 });

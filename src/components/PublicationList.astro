@@ -34,9 +34,12 @@ const { pubs, locale } = Astro.props;
               <span class="pub-badge">
                 {p.data.status === 'under-review'
                   ? t(locale, 'pubs.statusUnderReview')
-                  : t(locale, 'pubs.statusWorkingPaper')}
+                  : p.data.status === 'preprint'
+                    ? t(locale, 'pubs.statusPreprint')
+                    : t(locale, 'pubs.statusWorkingPaper')}
               </span>
             )}
+            {p.data.award && <span class="pub-badge pub-award">★ {p.data.award}</span>}
           </p>
           {(p.data.doi || p.data.url || p.data.pdf) && (
             <p class="pub-links">
@@ -109,6 +112,10 @@ const { pubs, locale } = Astro.props;
     font-weight: 500;
     font-size: var(--text-tiny);
     white-space: nowrap;
+  }
+
+  .pub-award {
+    background: var(--tint-coral);
   }
 
   .pub-links {

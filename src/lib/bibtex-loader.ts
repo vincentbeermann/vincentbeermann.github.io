@@ -44,12 +44,17 @@ export function bibtexLoader({ file }: { file: string }): Loader {
               title: (f.title as string) ?? '',
               authors,
               year: Number(f.year),
-              venue: (f.journal as string) ?? (f.booktitle as string) ?? undefined,
+              venue:
+                (f.journal as string) ??
+                (f.booktitle as string) ??
+                (f.school as string) ??
+                undefined,
               type: entry.type,
               status: f.status as string | undefined,
               doi: f.doi as string | undefined,
               url: f.url as string | undefined,
               pdf: f.pdf as string | undefined,
+              award: f.award as string | undefined,
               selected: f.selected === 'true',
             },
           });

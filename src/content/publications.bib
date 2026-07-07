@@ -5,7 +5,8 @@
 % Custom-Felder:
 %   selected = {true}          → erscheint auf der Startseite
 %   pdf      = {/pdf/x.pdf}    → Author-Copy, Datei liegt in public/pdf/
-%   status   = {under-review}  → für @unpublished (oder working-paper)
+%   status   = {under-review}  → für @unpublished (oder working-paper, preprint)
+%   award    = {...}           → Auszeichnung, wird als Badge angezeigt
 % ============================================================
 
 % ---------- Published ----------
@@ -13,7 +14,7 @@
 @incollection{beermann2026problem,
   title     = {What Is a Problem? Criteria and Guidelines for Crafting Research Problems in Design Science},
   author    = {Beermann, Vincent and Haskamp, Thomas and {vom Brocke}, Jan},
-  booktitle = {Design for Better Futures: Beyond the Science of the Artificial},
+  booktitle = {Design for Better Futures: Beyond the Science of the Artificial (DESRIST)},
   publisher = {Springer},
   address   = {Cham},
   pages     = {3--20},
@@ -27,6 +28,35 @@
   author    = {Beermann, Vincent},
   booktitle = {Proceedings of the Americas Conference on Information Systems (AMCIS)},
   year      = {2025},
+  url       = {https://aisel.aisnet.org/amcis2025/intelfuture/intelfuture/24},
+  selected  = {true},
+}
+
+@inproceedings{enkmann2025futureself,
+  title     = {Interacting with an AI-generated Future Self to Promote Healthy Food Choices: A Study Proposal},
+  author    = {Enkmann, Jan Markus and Beermann, Vincent and Fang, Cathy Mengying and Pataranutaporn, Pat and Maes, Pattie and Uebernickel, Falk},
+  booktitle = {Proceedings of the European Conference on Information Systems (ECIS)},
+  year      = {2025},
+  url       = {https://aisel.aisnet.org/ecis2025/health_it/health_it/7},
+}
+
+@incollection{enkmann2025neurois,
+  title     = {The Mechanisms of Attention and Decision-Making: A Neuroscience-informed Heuristic Framework for the Design of Digital Choice Architectures},
+  author    = {Enkmann, Jan Markus and Beermann, Vincent and Mohr, P. and Uebernickel, Falk},
+  booktitle = {Information Systems and Neuroscience (NeuroIS Retreat 2024)},
+  publisher = {Springer},
+  pages     = {313--325},
+  year      = {2025},
+  doi       = {10.1007/978-3-031-71385-9_27},
+}
+
+@phdthesis{beermann2025thesis,
+  title    = {Green Nudging: Designing and Evaluating Behavioral Interventions for Sustainable Household Resource Conservation},
+  author   = {Beermann, Vincent},
+  school   = {Doctoral dissertation, University of Potsdam},
+  year     = {2025},
+  doi      = {10.25932/publishup-68731},
+  selected = {true},
 }
 
 @inproceedings{beermann2024metaanalysis,
@@ -34,6 +64,7 @@
   author    = {Beermann, Vincent and Enkmann, Jan Markus and Maier, Maximilian and Barto{\v s}, Franti{\v s}ek},
   booktitle = {Proceedings of the International Conference on Information Systems (ICIS)},
   year      = {2024},
+  url       = {https://aisel.aisnet.org/icis2024/lit_review/lit_review/5},
   selected  = {true},
 }
 
@@ -80,9 +111,18 @@
   booktitle = {Proceedings of the Academy of Management Annual Meeting (AOM)},
   year      = {2022},
   doi       = {10.5465/AMBPP.2022.172},
+  award     = {AOM Best Paper Award},
 }
 
-% ---------- Under review / working papers ----------
+% ---------- Preprints, under review & working papers ----------
+
+@unpublished{ahmed2026scroll,
+  title  = {Before You Scroll Again: Predicting Regretful Social Media Sessions from In-the-Wild Contextual and Wearable Sensing},
+  author = {Ahmed, Sally and Enkmann, Jan and Shimizu, Kye and Yip, Ivy and Beermann, Vincent and Alomar, Ayse and Uebernickel, Falk and Maes, Pattie},
+  year   = {2026},
+  url    = {https://arxiv.org/abs/2606.08965},
+  status = {preprint},
+}
 
 @unpublished{beermann2025designing,
   title  = {Designing for Sustainable Resource Conservation: Leveraging Smart Meter Data and Digital Nudging Principles for Pro-Environmental Behavior},
@@ -96,4 +136,12 @@
   author = {Beermann, Vincent and Andor, Mark A. and Rieder, Annamina and Uebernickel, Falk},
   year   = {2025},
   status = {working-paper},
+}
+
+@unpublished{hueller2024supplychain,
+  title  = {Designing a Collaborative Platform for Advancing Supply Chain Transparency},
+  author = {Hueller, Lukas and Kuffner, Tim and Schneider, Matthias and Schuhmann, Leo and Cauderay, Virginie and Buz, Tolga and Beermann, Vincent and Uebernickel, Falk},
+  year   = {2024},
+  url    = {https://arxiv.org/abs/2409.08104},
+  status = {preprint},
 }
