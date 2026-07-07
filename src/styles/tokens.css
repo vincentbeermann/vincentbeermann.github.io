@@ -1,0 +1,58 @@
+/* ============================================================
+   tokens.css — Design-Token-System „Choice Architecture"
+   Papier + Tinte + ein Klein-Blau-Akzent. Dark Mode automatisch
+   über light-dark(), null JS.
+   ============================================================ */
+
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    /* --- Farben (semantisch) --- */
+    --color-paper: light-dark(#faf7f2, #131211);
+    --color-paper-raised: light-dark(#ffffff, #1b1a18);
+    --color-ink: light-dark(#171410, #f0ece4);
+    --color-ink-soft: light-dark(#5c574e, #a8a196);
+    --color-accent: light-dark(#0031e3, #5d7cff);
+    --color-accent-ink: light-dark(#ffffff, #0a0a14);
+    --color-line: light-dark(#e3ddd2, #2e2c28);
+    --color-line-strong: light-dark(#171410, #f0ece4);
+
+    /* --- Typografie --- */
+    --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
+    --font-text: 'Inter Variable', system-ui, sans-serif;
+
+    /* Fluide Skala (min @ 360px → max @ 1280px) */
+    --text-hero: clamp(2.6rem, 1rem + 8vw, 6.5rem);
+    --text-display: clamp(2rem, 1rem + 4.5vw, 4rem);
+    --text-title: clamp(1.4rem, 1rem + 1.8vw, 2.2rem);
+    --text-lead: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+    --text-body: 1rem;
+    --text-small: 0.875rem;
+    --text-tiny: 0.75rem;
+
+    --leading-tight: 1.05;
+    --leading-snug: 1.25;
+    --leading-normal: 1.6;
+
+    /* --- Spacing --- */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-s: 0.75rem;
+    --space-m: 1.25rem;
+    --space-l: 2rem;
+    --space-xl: 3.25rem;
+    --space-2xl: 5rem;
+    --space-3xl: clamp(5rem, 3rem + 8vw, 9rem);
+
+    /* --- Layout --- */
+    --width-content: 72rem;
+    --width-prose: 44rem;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+
+    /* --- Motion --- */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration-fast: 160ms;
+    --duration-slow: 480ms;
+  }
+}

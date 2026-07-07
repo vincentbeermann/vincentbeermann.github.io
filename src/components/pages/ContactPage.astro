@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import profile from '../../data/profile.yaml';
+import { t, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const p = profile as any;
+const links = p.links as Record<string, string>;
+
+const title =
+  locale === 'en' ? 'Contact — Vincent Beermann' : 'Kontakt — Vincent Beermann';
+const description =
+  locale === 'en'
+    ? 'Get in touch with Vincent Beermann — research collaborations, talks, workshops, advisory.'
+    : 'Kontakt zu Vincent Beermann — Forschungskooperationen, Vorträge, Workshops, Beratung.';
+
+const intro =
+  locale === 'en'
+    ? 'For research collaborations, talks, workshops, or advisory — the fastest way is a plain email.'
+    : 'Für Forschungskooperationen, Vorträge, Workshops oder Beratung — der schnellste Weg ist eine einfache E-Mail.';
+---
+
+<Base locale={locale} title={title} description={description}>
+  <main>
+    <div class="container">
+      <header class="page-head">
+        <h1>{t(locale, 'contact.title')}</h1>
+        <p class="lead">{intro}</p>
+      </header>
+
+      <a class="email" href={`mailto:${p.email}`}>{p.email}</a>
+
+      <ul class="channels">
+        <li><a href={links.linkedin} rel="me noopener">LinkedIn ↗</a></li>
+        <li><a href={links.github} rel="me noopener">GitHub ↗</a></li>
+      </ul>
+
+      <p class="location">{p.location}</p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .page-head {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .page-head h1 {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-m);
+  }
+
+  .lead {
+    font-size: var(--text-lead);
+    max-width: var(--width-prose);
+    color: var(--color-ink-soft);
+  }
+
+  .email {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-decoration-thickness: 0.06em;
+    overflow-wrap: anywhere;
+  }
+
+  .channels {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-l);
+    margin-block: var(--space-xl);
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  .channels a {
+    text-decoration: none;
+  }
+
+  .location {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small);
+    padding-bottom: var(--space-2xl);
+  }
+</style>

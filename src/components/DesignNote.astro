@@ -1,0 +1,46 @@
+---
+/**
+ * „Design-Fußnote" — das Augenzwinkern der Website: eine kleine Marginalie,
+ * die erklärt, welches Behavioral-Design-Prinzip die Seite an dieser Stelle
+ * selbst anwendet.
+ */
+interface Props {
+  n: number;
+  text: string;
+}
+
+const { n, text } = Astro.props;
+---
+
+<aside class="design-note" aria-label={`Design note ${n}`}>
+  <span class="design-note-marker">{n}</span>
+  <span class="design-note-text">{text}</span>
+</aside>
+
+<style>
+  .design-note {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: baseline;
+    max-width: 22rem;
+    font-size: var(--text-tiny);
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+  }
+
+  .design-note-marker {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 600;
+    transform: translateY(0.12rem);
+  }
+</style>

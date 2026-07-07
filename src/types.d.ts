@@ -1,3 +1,6 @@
+declare module '@fontsource-variable/space-grotesk';
+declare module '@fontsource-variable/inter';
+
 declare module '*.yaml' {
   const data: Record<string, unknown>;
   export default data;

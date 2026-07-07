@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  locale="en"
+  title="404 — Vincent Beermann"
+  description="This page does not exist."
+>
+  <main>
+    <div class="container notfound">
+      <p class="eyebrow">404</p>
+      <h1>This page doesn't exist.</h1>
+      <p class="sub">
+        Loss aversion says a dead end hurts about twice as much as finding
+        the right page feels good. Let's fix that: <a href="/">back to the
+        start</a> · <a href="/de/">zurück zur Startseite</a>.
+      </p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .notfound {
+    padding-block: var(--space-3xl);
+  }
+
+  .notfound h1 {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-block: var(--space-m) var(--space-l);
+    max-width: 16ch;
+  }
+
+  .sub {
+    font-size: var(--text-lead);
+    color: var(--color-ink-soft);
+    max-width: var(--width-prose);
+  }
+</style>

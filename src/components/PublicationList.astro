@@ -1,0 +1,128 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { t, type Locale } from '../i18n/ui';
+
+interface Props {
+  pubs: CollectionEntry<'publications'>[];
+  locale: Locale;
+}
+
+const { pubs, locale } = Astro.props;
+---
+
+<ol class="pub-list">
+  {
+    pubs.map((p) => (
+      <li class="pub reveal">
+        <span class="pub-year" aria-hidden="true">
+          {p.data.year}
+        </span>
+        <div class="pub-body">
+          <h3 class="pub-title">{p.data.title}</h3>
+          <p class="pub-meta">
+            {p.data.authors.map((a, i) => (
+              <Fragment>
+                {i > 0 && ', '}
+                {a === 'Vincent Beermann' ? <strong>{a}</strong> : a}
+              </Fragment>
+            ))}
+            <span class="pub-venue">
+              {' '}
+              ({p.data.year}){p.data.venue ? `. ${p.data.venue}` : ''}
+            </span>
+            {p.data.status && (
+              <span class="pub-badge">
+                {p.data.status === 'under-review'
+                  ? t(locale, 'pubs.statusUnderReview')
+                  : t(locale, 'pubs.statusWorkingPaper')}
+              </span>
+            )}
+          </p>
+          {(p.data.doi || p.data.url || p.data.pdf) && (
+            <p class="pub-links">
+              {p.data.doi && <a href={`https://doi.org/${p.data.doi}`}>DOI</a>}
+              {p.data.url && <a href={p.data.url}>Link</a>}
+              {p.data.pdf && <a href={p.data.pdf}>PDF</a>}
+            </p>
+          )}
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .pub-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pub {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: var(--space-m);
+    padding-block: var(--space-l);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .pub:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .pub-year {
+    font-family: var(--font-display);
+    font-size: var(--text-title);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-accent);
+  }
+
+  .pub-title {
+    font-size: var(--text-lead);
+    font-weight: 600;
+    max-width: var(--width-prose);
+  }
+
+  .pub-meta {
+    margin-top: var(--space-xs);
+    font-size: var(--text-small);
+    color: var(--color-ink-soft);
+    max-width: var(--width-prose);
+  }
+
+  .pub-meta strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .pub-badge {
+    display: inline-block;
+    margin-left: var(--space-xs);
+    padding: 0.05rem 0.55rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    color: var(--color-accent);
+    font-size: var(--text-tiny);
+    white-space: nowrap;
+  }
+
+  .pub-links {
+    margin-top: var(--space-xs);
+    display: flex;
+    gap: var(--space-m);
+    font-size: var(--text-small);
+  }
+
+  @media (max-width: 40rem) {
+    .pub {
+      grid-template-columns: 1fr;
+      gap: var(--space-xs);
+    }
+
+    .pub-year {
+      font-size: var(--text-body);
+    }
+  }
+</style>

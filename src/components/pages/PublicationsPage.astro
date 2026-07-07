@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PublicationList from '../PublicationList.astro';
+import { t, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const pubs = (await getCollection('publications')).sort(
+  (a, b) => b.data.year - a.data.year
+);
+const published = pubs.filter((p) => !p.data.status);
+const working = pubs.filter((p) => p.data.status);
+
+const title =
+  locale === 'en'
+    ? 'Publications — Vincent Beermann'
+    : 'Publikationen — Vincent Beermann';
+const description =
+  locale === 'en'
+    ? 'Peer-reviewed publications on digital nudging, behavioral design, and sustainability by Vincent Beermann.'
+    : 'Begutachtete Publikationen zu digitalem Nudging, Behavioral Design und Nachhaltigkeit von Vincent Beermann.';
+---
+
+<Base locale={locale} title={title} description={description}>
+  <main>
+    <div class="container">
+      <header class="page-head">
+        <h1>{t(locale, 'pubs.title')}</h1>
+      </header>
+
+      <PublicationList pubs={published} locale={locale} />
+
+      {
+        working.length > 0 && (
+          <section class="working">
+            <h2>{t(locale, 'pubs.underReview')}</h2>
+            <PublicationList pubs={working} locale={locale} />
+          </section>
+        )
+      }
+    </div>
+  </main>
+</Base>
+
+<style>
+  .page-head {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .page-head h1 {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .working {
+    margin-top: var(--space-2xl);
+  }
+
+  .working h2 {
+    font-size: var(--text-title);
+    margin-bottom: var(--space-l);
+    color: var(--color-ink-soft);
+  }
+
+  main {
+    padding-bottom: var(--space-2xl);
+  }
+</style>

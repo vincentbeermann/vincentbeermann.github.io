@@ -1,0 +1,140 @@
+/* ============================================================
+   global.css — Reset + Basis. Komponentenspezifisches lebt in
+   scoped <style>-Blöcken der .astro-Dateien.
+   ============================================================ */
+
+@layer reset, tokens, base;
+
+@import './tokens.css';
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-text);
+    font-size: 100%;
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: currentColor;
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 0.09em;
+    text-underline-offset: 0.18em;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  a:hover {
+    color: var(--color-accent);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Wiederkehrende Utility-Muster */
+  .container {
+    width: 100%;
+    max-width: var(--width-content);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--text-small);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  /* Scroll-Reveal: progressive enhancement, rein CSS */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: reveal-up var(--duration-slow) var(--ease-out) both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 42%;
+      }
+
+      @keyframes reveal-up {
+        from {
+          opacity: 0;
+          transform: translateY(1.25rem);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+/* Seitenübergänge: cross-document View Transitions, rein CSS */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation-duration: 120ms;
+  }
+
+  ::view-transition-new(root) {
+    animation-duration: 180ms;
+  }
+}

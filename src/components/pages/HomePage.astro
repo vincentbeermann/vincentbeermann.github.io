@@ -1,0 +1,232 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import DesignNote from '../DesignNote.astro';
+import PublicationList from '../PublicationList.astro';
+import profile from '../../data/profile.yaml';
+import services from '../../data/services.yaml';
+import { t, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const p = profile as any;
+const s = services as any;
+
+const selected = (await getCollection('publications', (e) => e.data.selected)).sort(
+  (a, b) => b.data.year - a.data.year
+);
+
+const roles: string[] = p.roles.map((r: Record<string, string>) => r[locale]);
+
+const title =
+  locale === 'en'
+    ? 'Vincent Beermann — Behavioral Design & AI Research'
+    : 'Vincent Beermann — Behavioral Design & KI-Forschung';
+const description = p.tagline[locale] + ' — ' + p.roles[0][locale];
+
+const note1 =
+  locale === 'en'
+    ? "Large type is salience at work — you read this sentence first. That's the point."
+    : 'Große Schrift ist Salienz in Aktion — Sie haben diesen Satz zuerst gelesen. Genau darum geht es.';
+const note2 =
+  locale === 'en'
+    ? 'Three options, not seven. Too much choice paralyzes — behavioral scientists call it choice overload.'
+    : 'Drei Optionen, nicht sieben. Zu viel Auswahl lähmt — Verhaltenswissenschaftler nennen das Choice Overload.';
+---
+
+<Base locale={locale} title={title} description={description}>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">
+          Behavioral Design · Digital Nudging · Human-AI Interaction
+        </p>
+        <h1 class="hero-tagline">{p.tagline[locale]}</h1>
+        <div class="hero-sub">
+          <p class="hero-name">Dr. Vincent Beermann</p>
+          <ul class="hero-roles">
+            {roles.map((r) => <li>{r}</li>)}
+          </ul>
+        </div>
+        <DesignNote n={1} text={note1} />
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <p class="about-bio">{p.bio[locale]}</p>
+      </div>
+    </section>
+
+    <section class="selected">
+      <div class="container">
+        <h2 class="section-title">{t(locale, 'home.selected')}</h2>
+        <PublicationList pubs={selected} locale={locale} />
+        <p class="section-more">
+          <a href={locale === 'en' ? '/publications' : '/de/publications'}>
+            {t(locale, 'home.allPublications')} →
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="work">
+      <div class="container">
+        <h2 class="section-title">{t(locale, 'home.workWithMe')}</h2>
+        <p class="work-intro">{s.intro[locale]}</p>
+        <div class="service-grid">
+          {
+            s.services.map((svc: any) => (
+              <article class="service-card reveal">
+                <h3>{svc.title[locale]}</h3>
+                <p>{svc.description[locale]}</p>
+              </article>
+            ))
+          }
+        </div>
+        <div class="work-foot">
+          <DesignNote n={2} text={note2} />
+          <a class="cta" href={locale === 'en' ? '/talks' : '/de/talks'}>
+            {t(locale, 'talks.title')} →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-3xl) var(--space-2xl);
+  }
+
+  .hero-tagline {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: var(--leading-tight);
+    max-width: 16ch;
+    margin-block: var(--space-m) var(--space-xl);
+  }
+
+  .hero-sub {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s) var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-lead);
+  }
+
+  .hero-roles {
+    list-style: none;
+    padding: 0;
+    color: var(--color-ink-soft);
+    font-size: var(--text-small);
+    max-width: 34rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .about {
+    border-top: 1px solid var(--color-line);
+    padding-block: var(--space-2xl);
+  }
+
+  .about-bio {
+    font-size: var(--text-lead);
+    line-height: 1.55;
+    max-width: var(--width-prose);
+    text-wrap: pretty;
+  }
+
+  .section-title {
+    font-size: var(--text-display);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xl);
+  }
+
+  .selected,
+  .work {
+    border-top: 1px solid var(--color-line);
+    padding-block: var(--space-2xl);
+  }
+
+  .section-more {
+    margin-top: var(--space-l);
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  .work-intro {
+    font-size: var(--text-lead);
+    max-width: var(--width-prose);
+    margin-bottom: var(--space-xl);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-m);
+  }
+
+  .service-card {
+    border: 1px solid var(--color-line-strong);
+    border-radius: 4px;
+    padding: var(--space-l);
+    background: var(--color-paper-raised);
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 0 var(--color-accent);
+  }
+
+  .service-card h3 {
+    font-size: var(--text-lead);
+    margin-bottom: var(--space-s);
+  }
+
+  .service-card p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+
+  .work-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-l);
+    margin-top: var(--space-xl);
+  }
+
+  .cta {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    padding: 0.8rem 1.6rem;
+    border-radius: 4px;
+    transition: filter var(--duration-fast) var(--ease-out);
+  }
+
+  .cta:hover {
+    color: var(--color-accent-ink);
+    filter: brightness(1.15);
+  }
+</style>

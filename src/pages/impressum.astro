@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  locale="de"
+  title="Impressum — Vincent Beermann"
+  description="Impressum und Anbieterkennzeichnung gemäß § 5 DDG."
+>
+  <main>
+    <div class="container legal">
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>
+        Dr. Vincent Beermann<br />
+        <!-- TODO(Vincent): ladungsfähige Anschrift ergänzen -->
+        Anschrift wird ergänzt<br />
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:vincent.beermann@hpi.de">vincent.beermann@hpi.de</a>
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <p>Dr. Vincent Beermann (Anschrift wie oben)</p>
+
+      <h2>Haftung für Links</h2>
+      <p>
+        Diese Website enthält Links zu externen Websites Dritter, auf deren
+        Inhalte ich keinen Einfluss habe. Für die Inhalte der verlinkten
+        Seiten ist stets der jeweilige Anbieter verantwortlich. Zum Zeitpunkt
+        der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.
+      </p>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .legal {
+    max-width: var(--width-prose);
+    padding-block: var(--space-2xl);
+  }
+
+  .legal h1 {
+    font-size: var(--text-display);
+    margin-bottom: var(--space-xl);
+  }
+
+  .legal h2 {
+    font-size: var(--text-lead);
+    margin-block: var(--space-l) var(--space-s);
+  }
+
+  .legal p {
+    color: var(--color-ink-soft);
+  }
+</style>

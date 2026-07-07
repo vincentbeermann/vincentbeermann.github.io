@@ -1,0 +1,237 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import DesignNote from '../DesignNote.astro';
+import services from '../../data/services.yaml';
+import profile from '../../data/profile.yaml';
+import { t, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const s = services as any;
+const email = (profile as any).email as string;
+
+const talks = (await getCollection('talks')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const title =
+  locale === 'en'
+    ? 'Speaking & Workshops — Vincent Beermann'
+    : 'Vorträge & Workshops — Vincent Beermann';
+const description = s.intro[locale];
+
+const kindLabel: Record<string, { en: string; de: string }> = {
+  keynote: { en: 'Keynote', de: 'Keynote' },
+  talk: { en: 'Talk', de: 'Vortrag' },
+  workshop: { en: 'Workshop', de: 'Workshop' },
+  panel: { en: 'Panel', de: 'Panel' },
+  lecture: { en: 'Lecture', de: 'Vorlesung' },
+};
+
+const note3 =
+  locale === 'en'
+    ? 'One blue button, no contact form. Every extra field costs response rates — friction is the quietest behavior killer.'
+    : 'Ein blauer Button, kein Kontaktformular. Jedes zusätzliche Feld kostet Rücklauf — Reibung ist der leiseste Verhaltenskiller.';
+
+const mailSubject =
+  locale === 'en' ? 'Talk / workshop enquiry' : 'Anfrage Vortrag / Workshop';
+
+const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
+  year: 'numeric',
+  month: 'long',
+});
+---
+
+<Base locale={locale} title={title} description={description}>
+  <main>
+    <div class="container">
+      <header class="page-head">
+        <h1>{t(locale, 'talks.title')}</h1>
+        <p class="lead">{s.intro[locale]}</p>
+      </header>
+
+      <div class="service-grid">
+        {
+          s.services.map((svc: any) => (
+            <article class="service-card reveal">
+              <h2>{svc.title[locale]}</h2>
+              <p>{svc.description[locale]}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="enquiry">
+        <a class="cta" href={`mailto:${email}?subject=${encodeURIComponent(mailSubject)}`}>
+          {t(locale, 'talks.enquiry')}
+        </a>
+        <DesignNote n={3} text={note3} />
+      </div>
+
+      <section class="past">
+        <h2>{t(locale, 'talks.past')}</h2>
+        <ul class="talk-list">
+          {
+            talks.map((talk) => (
+              <li class="talk reveal">
+                <span class="talk-date">{dateFmt.format(talk.data.date)}</span>
+                <div>
+                  <p class="talk-event">
+                    {talk.data.event}
+                    {talk.data.location && <span class="talk-loc"> · {talk.data.location}</span>}
+                  </p>
+                  <p class="talk-title">
+                    {talk.data.url ? <a href={talk.data.url}>{talk.data.title}</a> : talk.data.title}
+                    <span class="talk-kind">{kindLabel[talk.data.kind][locale]}</span>
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .page-head {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .page-head h1 {
+    font-size: var(--text-hero);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-m);
+  }
+
+  .lead {
+    font-size: var(--text-lead);
+    max-width: var(--width-prose);
+    color: var(--color-ink-soft);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-m);
+  }
+
+  .service-card {
+    border: 1px solid var(--color-line-strong);
+    border-radius: 4px;
+    padding: var(--space-l);
+    background: var(--color-paper-raised);
+  }
+
+  .service-card h2 {
+    font-size: var(--text-lead);
+    margin-bottom: var(--space-s);
+  }
+
+  .service-card p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+
+  .enquiry {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-l);
+    margin-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .cta {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    padding: 0.8rem 1.6rem;
+    border-radius: 4px;
+    transition: filter var(--duration-fast) var(--ease-out);
+  }
+
+  .cta:hover {
+    color: var(--color-accent-ink);
+    filter: brightness(1.15);
+  }
+
+  .past {
+    border-top: 1px solid var(--color-line);
+    padding-block: var(--space-2xl);
+  }
+
+  .past h2 {
+    font-size: var(--text-display);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xl);
+  }
+
+  .talk-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .talk {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: var(--space-m);
+    padding-block: var(--space-l);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .talk:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .talk-date {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-accent);
+    font-size: var(--text-small);
+  }
+
+  .talk-event {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-lead);
+  }
+
+  .talk-loc {
+    color: var(--color-ink-soft);
+    font-weight: 400;
+    font-size: var(--text-body);
+  }
+
+  .talk-title {
+    color: var(--color-ink-soft);
+    margin-top: var(--space-2xs);
+  }
+
+  .talk-kind {
+    display: inline-block;
+    margin-left: var(--space-xs);
+    padding: 0.05rem 0.55rem;
+    border: 1px solid var(--color-line-strong);
+    border-radius: 999px;
+    font-size: var(--text-tiny);
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 40rem) {
+    .talk {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xs);
+    }
+  }
+</style>
