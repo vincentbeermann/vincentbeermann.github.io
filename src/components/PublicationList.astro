@@ -8,6 +8,14 @@ interface Props {
 }
 
 const { pubs, locale } = Astro.props;
+
+// Publizierte Einträge (ohne status) bekommen den Publikationstyp als Badge.
+const typeLabel: Record<string, { en: string; de: string }> = {
+  inproceedings: { en: 'Conference paper', de: 'Konferenzbeitrag' },
+  incollection: { en: 'Book chapter', de: 'Buchkapitel' },
+  phdthesis: { en: 'PhD thesis', de: 'Dissertation' },
+  article: { en: 'Journal article', de: 'Journal-Artikel' },
+};
 ---
 
 <ol class="pub-list">
@@ -38,6 +46,9 @@ const { pubs, locale } = Astro.props;
                     ? t(locale, 'pubs.statusPreprint')
                     : t(locale, 'pubs.statusWorkingPaper')}
               </span>
+            )}
+            {!p.data.status && typeLabel[p.data.type] && (
+              <span class="pub-badge pub-type">{typeLabel[p.data.type][locale]}</span>
             )}
             {p.data.award && <span class="pub-badge pub-award">★ {p.data.award}</span>}
           </p>
@@ -116,6 +127,10 @@ const { pubs, locale } = Astro.props;
 
   .pub-award {
     background: var(--tint-coral);
+  }
+
+  .pub-type {
+    background: var(--tint-green);
   }
 
   .pub-links {
