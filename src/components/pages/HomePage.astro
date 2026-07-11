@@ -17,9 +17,16 @@ const { locale } = Astro.props;
 const p = profile as any;
 const s = services as any;
 
-const selected = (await getCollection('publications', (e) => e.data.selected)).sort(
+// Startseite zeigt alle Paper des neuesten Jahrgangs (selbstpflegend).
+const pubs = (await getCollection('publications')).sort(
   (a, b) => b.data.year - a.data.year
 );
+const latestYear = pubs[0]?.data.year;
+const statusRank = (s?: string) =>
+  s === undefined ? 0 : s === 'preprint' ? 1 : s === 'under-review' ? 2 : 3;
+const current = pubs
+  .filter((p) => p.data.year === latestYear)
+  .sort((a, b) => statusRank(a.data.status) - statusRank(b.data.status));
 
 const roles: string[] = p.roles.map((r: Record<string, string>) => r[locale]);
 
@@ -76,27 +83,6 @@ const chips = ['Human-AI Interaction', 'Behavioral Design', 'Information Systems
       </div>
     </section>
 
-    <section class="now">
-      <div class="container">
-        <aside class="now-card reveal">
-          <p class="eyebrow">{t(locale, 'home.now')}</p>
-          <p class="now-text">{p.now[locale]}</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="selected">
-      <div class="container">
-        <h2 class="section-title">{t(locale, 'home.selected')}</h2>
-        <PublicationList pubs={selected} locale={locale} />
-        <p class="section-more">
-          <a href={locale === 'en' ? '/publications' : '/de/publications'}>
-            {t(locale, 'home.allPublications')} →
-          </a>
-        </p>
-      </div>
-    </section>
-
     <section class="work">
       <div class="container">
         <h2 class="section-title">{t(locale, 'home.workWithMe')}</h2>
@@ -107,6 +93,22 @@ const chips = ['Human-AI Interaction', 'Behavioral Design', 'Information Systems
             {t(locale, 'talks.title')} →
           </a>
         </div>
+      </div>
+    </section>
+
+    <section class="research">
+      <div class="container">
+        <h2 class="section-title">{t(locale, 'nav.research')}</h2>
+        <aside class="now-card reveal">
+          <p class="eyebrow">{t(locale, 'home.now')}</p>
+          <p class="now-text">{p.now[locale]}</p>
+        </aside>
+        <PublicationList pubs={current} locale={locale} />
+        <p class="section-more">
+          <a href={locale === 'en' ? '/publications' : '/de/publications'}>
+            {t(locale, 'home.allPublications')} →
+          </a>
+        </p>
       </div>
     </section>
   </main>
@@ -188,10 +190,6 @@ const chips = ['Human-AI Interaction', 'Behavioral Design', 'Information Systems
     padding-block: var(--space-2xl);
   }
 
-  .now {
-    padding-block: 0 var(--space-2xl);
-  }
-
   .now-card {
     max-width: 56rem;
     border: 2px solid var(--color-line-strong);
@@ -199,6 +197,7 @@ const chips = ['Human-AI Interaction', 'Behavioral Design', 'Information Systems
     background: var(--tint-blue);
     padding: var(--space-l) var(--space-xl);
     transform: rotate(-0.4deg);
+    margin-bottom: var(--space-xl);
   }
 
   .now-card .eyebrow {
@@ -229,7 +228,7 @@ const chips = ['Human-AI Interaction', 'Behavioral Design', 'Information Systems
     margin-bottom: var(--space-xl);
   }
 
-  .selected,
+  .research,
   .work {
     border-top: 1px solid var(--color-line);
     padding-block: var(--space-2xl);
