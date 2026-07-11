@@ -10,9 +10,10 @@ interface Props {
   locale: Locale;
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { locale, title, description } = Astro.props;
+const { locale, title, description, noindex = false } = Astro.props;
 const pathname = Astro.url.pathname;
 const altPath = altLocalePath(pathname, locale);
 const canonical = new URL(pathname, Astro.site);
@@ -34,6 +35,7 @@ const nav = [
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="alternate" hreflang={locale === 'en' ? 'de' : 'en'} href={new URL(altPath, Astro.site)} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:title" content={title} />
@@ -76,8 +78,9 @@ const nav = [
       </div>
     </footer>
 
-    <!-- Spam-Schutz: setzt E-Mail-Links aus data-Attributen zusammen,
-         damit die Adresse nie als Klartext/mailto im HTML steht. -->
+    <!-- Spam-/Scraper-Schutz: setzt E-Mail-Links aus data-Attributen
+         zusammen und dekodiert die Impressums-Anschrift — beides steht
+         nie als Klartext im HTML oder im (öffentlichen) Repo. -->
     <script is:inline>
       for (const a of document.querySelectorAll('a[data-eu]')) {
         const m = a.dataset.eu + '@' + a.dataset.ed;
@@ -86,6 +89,9 @@ const nav = [
           'mailto:' + m + (a.dataset.es ? '?subject=' + encodeURIComponent(a.dataset.es) : '')
         );
         if (a.dataset.el !== undefined) a.textContent = m;
+      }
+      for (const el of document.querySelectorAll('[data-addr]')) {
+        el.textContent = atob(el.dataset.addr);
       }
     </script>
   </body>

@@ -13,7 +13,11 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/impressum') && !page.includes('/datenschutz'),
+    }),
+  ],
   vite: {
     plugins: [yaml()],
   },

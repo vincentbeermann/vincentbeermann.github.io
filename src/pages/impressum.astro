@@ -7,6 +7,7 @@ import Email from '../components/Email.astro';
   locale="de"
   title="Impressum — Vincent Beermann"
   description="Impressum und Anbieterkennzeichnung gemäß § 5 DDG."
+  noindex
 >
   <main>
     <div class="container legal">
@@ -15,8 +16,12 @@ import Email from '../components/Email.astro';
       <h2>Angaben gemäß § 5 DDG</h2>
       <p>
         Dr. Vincent Beermann<br />
-        <!-- TODO(Vincent): ladungsfähige Anschrift ergänzen -->
-        Anschrift wird ergänzt<br />
+        <!-- Anschrift base64-kodiert (Scraper-Schutz, Repo ist öffentlich);
+             wird per Script in Base.astro dekodiert angezeigt. -->
+        <span data-addr="SW5uc3RyLiA0LCAxMjA0NSBCZXJsaW4="
+          >Anschrift wird mit aktiviertem JavaScript angezeigt — oder per
+          E-Mail erfragen.</span
+        ><br />
       </p>
 
       <h2>Kontakt</h2>
