@@ -50,6 +50,29 @@ const taglineParts =
     : { before: tagline, mark: '', after: '' };
 
 const chips = ['Human-AI Interaction', 'Behavioral Design', 'Information Systems'];
+
+// Strukturierte Daten für Suchmaschinen (Person-Schema, nur auf der Home).
+const personLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Vincent Beermann',
+  honorificPrefix: 'Dr.',
+  jobTitle:
+    'Postdoctoral Researcher & Interim Chair, Design Thinking and Innovation Research',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Hasso Plattner Institute, University of Potsdam',
+  },
+  url: 'https://vincentbeermann.github.io/',
+  sameAs: [p.links.linkedin, p.links.github, 'https://www.menura-audio.com'],
+  knowsAbout: [
+    'Behavioral Design',
+    'Digital Nudging',
+    'Human-AI Interaction',
+    'Field Experiments',
+    'Information Systems',
+  ],
+});
 ---
 
 <Base locale={locale} title={title} description={description}>
@@ -112,6 +135,8 @@ const chips = ['Human-AI Interaction', 'Behavioral Design', 'Information Systems
       </div>
     </section>
   </main>
+
+  <script type="application/ld+json" set:html={personLd} />
 </Base>
 
 <style>
