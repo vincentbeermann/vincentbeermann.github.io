@@ -78,8 +78,19 @@
     color: var(--color-ink);
   }
 
-  /* Textmarker-Highlight (Hero-Tagline u.ä.) */
+  /* Textmarker-Highlight (Hero-Tagline u.ä.). Der gelbe Balken liegt als
+     ::before auf z-index -1 HINTER dem Text — so bleiben Unterlängen
+     benachbarter Buchstaben (z.B. das g) über dem Marker sichtbar. */
   mark {
+    background: transparent;
+    color: inherit;
+    position: relative;
+  }
+
+  mark::before {
+    content: '';
+    position: absolute;
+    inset: 0.04em -0.1em -0.02em;
     background: linear-gradient(
       104deg,
       transparent 0.9%,
@@ -87,11 +98,8 @@
       var(--color-marker) 97.8%,
       transparent 99%
     );
-    color: inherit;
-    padding-inline: 0.08em;
     border-radius: 0.12em;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+    z-index: -1;
   }
 
   :focus-visible {

@@ -22,6 +22,24 @@ tagline:
   en: I study how design changes behavior.
   de: Ich erforsche, wie Design Verhalten verändert.
 
+# Kurzer „Currently"-Pitch auf der Startseite (über den Publikationen).
+now:
+  en: >-
+    Right now, my work circles one question: how people stay in charge when
+    AI enters their decisions. I study when we should trust an AI's advice —
+    and when we shouldn't — how choice architectures can be co-designed
+    with the people they steer, and how digital tools change everyday
+    behavior in the wild, from regretful scrolling to healthier routines.
+    Tested in preregistered experiments and large-scale field studies.
+  de: >-
+    Im Moment kreist meine Arbeit um eine Frage: Wie behalten Menschen die
+    Kontrolle, wenn KI in ihre Entscheidungen einzieht? Ich untersuche, wann
+    wir dem Rat einer KI vertrauen sollten — und wann nicht —, wie
+    Entscheidungsarchitekturen gemeinsam mit denen gestaltet werden, die sie
+    lenken sollen, und wie digitale Tools Alltagsverhalten verändern: vom
+    bereuten Scrollen bis zu gesünderen Routinen. Getestet in
+    präregistrierten Experimenten und großen Feldstudien.
+
 # Wort aus der Tagline, das den Textmarker bekommt
 tagline_highlight:
   en: behavior
