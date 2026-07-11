@@ -68,7 +68,7 @@ const nav = [
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="wordmark" href={locale === 'en' ? '/' : '/de/'}>Vincent Beermann</a>
+        <a class="wordmark" href={locale === 'en' ? '/' : '/de/'}>Dr. Vincent Beermann</a>
         <nav aria-label={locale === 'en' ? 'Main navigation' : 'Hauptnavigation'}>
           {nav.map((item) => (
             <a href={item.href} aria-current={pathname.replace(/\/$/, '') === item.href ? 'page' : undefined}>
