@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Email from '../Email.astro';
 import ServiceCards from '../ServiceCards.astro';
 import services from '../../data/services.yaml';
-import profile from '../../data/profile.yaml';
 import { t, type Locale } from '../../i18n/ui';
 
 interface Props {
@@ -13,7 +13,6 @@ interface Props {
 const { locale } = Astro.props;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const s = services as any;
-const email = (profile as any).email as string;
 
 const talks = (await getCollection('talks')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
@@ -55,9 +54,12 @@ const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : 'de-DE', {
       <ServiceCards services={s.services} locale={locale} headingLevel="h2" />
 
       <div class="enquiry">
-        <a class="cta" href={`mailto:${email}?subject=${encodeURIComponent(mailSubject)}`}>
-          {t(locale, 'talks.enquiry')}
-        </a>
+        <Email
+          class="cta"
+          label={t(locale, 'talks.enquiry')}
+          subject={mailSubject}
+          fallbackHref={locale === 'en' ? '/contact' : '/de/contact'}
+        />
       </div>
 
       <section class="past">

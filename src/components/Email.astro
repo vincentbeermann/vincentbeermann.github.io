@@ -1,0 +1,30 @@
+---
+import profile from '../data/profile.yaml';
+
+/**
+ * Spam-geschützter E-Mail-Link. Die Adresse steht NIE als Klartext oder
+ * mailto: im HTML — nur getrennt in data-Attributen plus „[at]"-Schreibweise
+ * als No-JS-Fallback. Ein Mini-Inline-Script in Base.astro setzt href und
+ * Klartext zur Laufzeit zusammen.
+ */
+interface Props {
+  label?: string;
+  subject?: string;
+  class?: string;
+  fallbackHref?: string;
+}
+
+const { label, subject, class: className, fallbackHref } = Astro.props;
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const email = (profile as any).email as string;
+const [eu, ed] = email.split('@');
+const display = label ?? `${eu} [at] ${ed}`;
+---
+
+<a
+  class={className}
+  href={fallbackHref}
+  data-eu={eu}
+  data-ed={ed}
+  data-es={subject}
+  data-el={label ? undefined : ''}>{display}</a>

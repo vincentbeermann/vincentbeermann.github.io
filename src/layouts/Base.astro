@@ -4,6 +4,7 @@ import '@fontsource-variable/inter';
 import '../styles/global.css';
 import { t, altLocalePath, type Locale } from '../i18n/ui';
 import profile from '../data/profile.yaml';
+import Email from '../components/Email.astro';
 
 interface Props {
   locale: Locale;
@@ -16,7 +17,6 @@ const pathname = Astro.url.pathname;
 const altPath = altLocalePath(pathname, locale);
 const canonical = new URL(pathname, Astro.site);
 const links = profile.links as Record<string, string>;
-const email = profile.email as string;
 const year = new Date().getFullYear();
 
 const nav = [
@@ -64,7 +64,7 @@ const nav = [
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-contact">
-          <a href={`mailto:${email}`}>{email}</a>
+          <Email />
           <a href={links.linkedin} rel="me noopener">LinkedIn</a>
           <a href={links.github} rel="me noopener">GitHub</a>
         </div>
@@ -75,6 +75,19 @@ const nav = [
         </div>
       </div>
     </footer>
+
+    <!-- Spam-Schutz: setzt E-Mail-Links aus data-Attributen zusammen,
+         damit die Adresse nie als Klartext/mailto im HTML steht. -->
+    <script is:inline>
+      for (const a of document.querySelectorAll('a[data-eu]')) {
+        const m = a.dataset.eu + '@' + a.dataset.ed;
+        a.setAttribute(
+          'href',
+          'mailto:' + m + (a.dataset.es ? '?subject=' + encodeURIComponent(a.dataset.es) : '')
+        );
+        if (a.dataset.el !== undefined) a.textContent = m;
+      }
+    </script>
   </body>
 </html>
 

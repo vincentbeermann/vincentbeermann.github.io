@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Email from '../Email.astro';
 import profile from '../../data/profile.yaml';
 import { t, type Locale } from '../../i18n/ui';
 
@@ -33,7 +34,7 @@ const intro =
         <p class="lead">{intro}</p>
       </header>
 
-      <a class="email" href={`mailto:${p.email}`}>{p.email}</a>
+      <Email class="email" />
 
       <ul class="channels">
         <li><a href={links.linkedin} rel="me noopener">LinkedIn ↗</a></li>
