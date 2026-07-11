@@ -27,24 +27,30 @@ tagline_highlight:
   en: behavior
   de: Verhalten
 
+# Einfache Markdown-Links [Text](URL) sind erlaubt und werden gerendert.
 bio:
   en: >-
     I am a psychologist and information systems researcher. My work connects
-    behavioral science and design: digital nudging and choice architecture,
-    large-scale field experiments on energy and water conservation, and the
-    question of how AI changes the way we decide and work. I completed my PhD at the Hasso Plattner Institute (summa cum
-    laude), where I now lead the Design Thinking and Innovation Research
+    behavioral science and design, with one question at its core: how AI
+    changes the way we decide and work. I study human-AI interaction,
+    digital nudging, and choice architecture — often in large-scale field
+    experiments. I completed my PhD at the Hasso Plattner Institute (summa
+    cum laude), where I now lead the Design Thinking and Innovation Research
     group on an interim basis, and I collaborate with the Fluid Interfaces
-    group at the MIT Media Lab. Outside academia, I co-founded Menura Audio,
-    a modular DJ mixer.
+    group at the MIT Media Lab. I am also a psychotherapist in training
+    (systemic) and work as an executive coach. Outside academia, I
+    co-founded [Menura Audio](https://www.menura-audio.com), where we build
+    modular DJ gear — the mixer is just the start.
   de: >-
     Ich bin Psychologe und Wirtschaftsinformatik-Forscher. Meine Arbeit
-    verbindet Verhaltenswissenschaft und Design: digitales Nudging und
-    Entscheidungsarchitektur, großangelegte Feldexperimente zum Energie-
-    und Wassersparen und die Frage, wie KI unser Entscheiden und Arbeiten
-    verändert. Promoviert habe ich am
+    verbindet Verhaltenswissenschaft und Design — mit einer Kernfrage: Wie
+    verändert KI unser Entscheiden und Arbeiten? Ich erforsche Human-AI
+    Interaction, digitales Nudging und Entscheidungsarchitektur, oft in
+    großangelegten Feldexperimenten. Promoviert habe ich am
     Hasso-Plattner-Institut (summa cum laude), wo ich derzeit das Fachgebiet
     Design Thinking and Innovation Research vertretungsweise leite; zudem
-    forsche ich mit der Fluid-Interfaces-Gruppe am MIT Media Lab. Neben der
-    Wissenschaft habe ich Menura Audio mitgegründet, einen modularen
-    DJ-Mixer.
+    forsche ich mit der Fluid-Interfaces-Gruppe am MIT Media Lab. Außerdem
+    bin ich Psychotherapeut in Ausbildung (systemisch) und arbeite als
+    Executive Coach. Neben der Wissenschaft habe ich
+    [Menura Audio](https://www.menura-audio.com) mitgegründet — wir bauen
+    modulares DJ-Equipment, der Mixer ist erst der Anfang.
