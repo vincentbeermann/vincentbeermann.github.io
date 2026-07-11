@@ -23,9 +23,9 @@ const ogImage = new URL('/og.png', Astro.site);
 const links = profile.links as Record<string, string>;
 const year = new Date().getFullYear();
 
-// Auf der Startseite steht „Dr." schon im Hero — dort schlichte Wortmarke.
+// Auf der Startseite gibt es keine Wortmarke — man IST ja schon dort,
+// und der Hero trägt den Namen ohnehin.
 const isHome = pathname === '/' || pathname.replace(/\/$/, '') === '/de';
-const wordmark = isHome ? 'Vincent Beermann' : 'Dr. Vincent Beermann';
 
 const nav = [
   { href: locale === 'en' ? '/publications' : '/de/publications', label: t(locale, 'nav.research') },
@@ -72,7 +72,13 @@ const nav = [
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="wordmark" href={locale === 'en' ? '/' : '/de/'}>{wordmark}</a>
+        {
+          !isHome && (
+            <a class="wordmark" href={locale === 'en' ? '/' : '/de/'}>
+              Dr. Vincent Beermann
+            </a>
+          )
+        }
         <nav aria-label={locale === 'en' ? 'Main navigation' : 'Hauptnavigation'}>
           {nav.map((item) => (
             <a href={item.href} aria-current={pathname.replace(/\/$/, '') === item.href ? 'page' : undefined}>
@@ -149,6 +155,7 @@ const nav = [
     flex-wrap: wrap;
     gap: var(--space-m);
     font-size: var(--text-small);
+    margin-left: auto;
   }
 
   nav a {
