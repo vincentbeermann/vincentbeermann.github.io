@@ -92,9 +92,19 @@ npm run build      # astro check && astro build
 npm run preview    # gebauten Stand ansehen
 ```
 
-## Offen / v2
+## Datenschutz-Mechanik (nicht kaputt machen!)
 
-- Impressum: ladungsfähige Anschrift eintragen (Platzhalter drin!)
+- **E-Mail** (vincentbeermann@icloud.com, aus profile.yaml) steht NIE als
+  Klartext/mailto im HTML — `Email.astro` + Inline-Script in Base.astro
+  setzen sie zur Laufzeit zusammen. Nie einen rohen mailto-Link einbauen.
+- **Impressums-Anschrift** steht base64-kodiert in impressum.astro
+  (`data-addr`), weil das Repo ÖFFENTLICH ist — Klartext weder ins HTML
+  noch in den Quellcode committen. Ändern: neuen String mit
+  `printf 'Straße X, PLZ Ort' | base64` erzeugen und einsetzen.
+- Impressum + Datenschutz sind `noindex` und aus der Sitemap gefiltert
+  (astro.config.mjs).
+
+## Offen / v2
 - Custom Domain: `public/CNAME` + DNS (A/AAAA auf GitHub-Pages-IPs) + Pages-Settings
 - Projects-/Notes-Seiten freischalten (Collections existieren)
 - Portrait-Foto (altes liegt im Branch `legacy-hugo` unter `home/portrait.jpeg`)
