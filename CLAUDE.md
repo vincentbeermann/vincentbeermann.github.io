@@ -140,7 +140,7 @@ Diese Formulierungen bewusst so — nicht „glattziehen":
 | „individuelles Programm", „auf dich zugeschnittenes Konzept" | Wissen/Verfahren vermitteln, Muster, Kontext | BMWK definiert genau das als *beratend* = gewerblich |
 | „systemisches Coaching" als Angebots-Headline | „psychologisch fundiert", „Psychologe (M.Sc.)" | BMWK nennt systemisches Coaching explizit als Beispiel für *kein* schulmäßiges Programm → nicht unterrichtend. (In der Bio als Ausbildungs-*Faktum* ok.) |
 | „wir", Team-/Agentur-Sprache | „ich" | Freiberuflichkeit ist höchstpersönlich (§ 18 Abs. 1 Nr. 1 Satz 3: leitend + eigenverantwortlich) |
-| Preise, Pakete, Staffeln, „jetzt buchen", Shop | Anfrage per E-Mail | Produkt-/Handels-Anmutung |
+| Preise, Pakete, Staffeln, „jetzt buchen", Shop | Anfrage per E-Mail | Produkt-/Handels-Anmutung. **Zusätzlich:** Vincent ist Kleinunternehmer (§ 19 UStG) — sobald je ein Preis auf die Seite kommt, MUSS der Hinweis „keine Umsatzsteuer gem. § 19 UStG" dazu. Preislosigkeit ist auch deshalb die einfachere Variante. |
 | „praxisorientierte Beratung", „Tipps", „Best Practices" (Wort „Beratung" allein ist ok, s.o.) | Interventionsdesign, Evaluation, Feldexperiment | *Wissenschaftlich* wird verneint, wenn es bloß praxisorientierte Wissensvermittlung/Beratung ist |
 
 Aktiv drin lassen: bei Workshops die Worte **Curriculum, Lernziele, eigenes
