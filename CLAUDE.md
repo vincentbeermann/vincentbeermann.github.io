@@ -84,6 +84,27 @@ sprachneutral (keine Übersetzung nötig).
   psychologisch fundiert, KEIN generisches Life-Coaching,
   KEINE Heilkunde-/Therapie-Sprache vor Approbation (erwartet ~Okt 2027+).
 
+## Psychotherapie-Status in der Bio (Titelrecht)
+
+Vincent ist **in Ausbildung zum Psychologischen Psychotherapeuten, systemische
+Vertiefung** (Approbationsausbildung, bestätigt 2026-07-15). Die Bio sagt
+deshalb genau das — nicht „Psychotherapeut in Ausbildung". Grund: „Psychologischer
+Psychotherapeut" ist nach PsychThG geschützt; die Konstruktion „in Ausbildung
+**zum**" stellt durch die Wortstellung klar, dass der Titel noch nicht geführt
+wird. Nicht auf „Psychotherapeut (i.A.)" o.ä. verkürzen.
+
+Der eigentliche Hebel ist ohnehin nicht der Titel, sondern das **Angebot**: Bis
+zur Approbation darf die Seite keinen Eindruck erwecken, dass er Psychotherapie
+oder Heilbehandlung anbietet — Behandlung findet ausschließlich im Rahmen der
+Ausbildung unter Supervision statt, nicht als Leistung dieser Website. Deshalb
+steht „Keine Therapie, kein Life-Coaching" auf der Coaching-Karte, und der
+Status steht in der Bio (Faktum über ihn) statt bei den Angeboten.
+
+Nach der Approbation (~Okt 2027+) ist das ein echter Umbau, kein Textfix:
+Heilkunde ist umsatzsteuerfrei (§ 4 Nr. 14 UStG), es kommen Berufsrecht und
+Kammerangaben ins Impressum, und ein Behandlungsangebot wäre dann zulässig.
+Dann neu aufsetzen, nicht nachjustieren.
+
 ## Freiberuflichkeit — Wortwahl-Guardrails (nicht aufweichen!)
 
 Vincent ist freiberuflich angemeldet (§ 18 EStG), nicht gewerblich. Die
