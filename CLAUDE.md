@@ -89,9 +89,28 @@ sprachneutral (keine Übersetzung nötig).
 Vincent ist freiberuflich angemeldet (§ 18 EStG), nicht gewerblich. Die
 Website entscheidet das **nicht** — die tatsächliche Tätigkeit tut das —,
 aber sie ist Außendarstellung, die ein Prüfer liest. Sie darf der
-Freiberuflichkeit nicht widersprechen. Tragende Anker: **wissenschaftliche**
-und **unterrichtende** Tätigkeit (§ 18 Abs. 1 Nr. 1 Satz 2 EStG) sowie das
-**Berufsbild Psychologe** (kein Katalogberuf, greift über „ähnliche Berufe").
+Freiberuflichkeit nicht widersprechen.
+
+**Referenztext = Fragebogen zur steuerlichen Erfassung.** Wortlaut seiner
+Anmeldung:
+
+> Wissenschaftliche, beratende und unterrichtende Tätigkeit als Psychologe
+> (M.Sc.) und Wirtschaftsinformatiker (Dr. rer. nat.): Vorträge, Workshops,
+> Lehre und Beratung.
+
+Dieser Satz steht wörtlich im Impressum. **Die Website darf nicht weniger und
+nicht mehr behaupten als die Anmeldung** — Konsistenz schlägt geschickte
+Wortwahl. Deshalb ist „Beratung" hier ausdrücklich ERLAUBT (sie ist
+angemeldet, und die Angebots-Karte heißt so); riskant ist nicht das Wort,
+sondern ein Inhalt, der wie praxisorientierte Ratschläge statt wie
+angewandte Wissenschaft klingt. Ändert sich die Anmeldung, ändert sich das
+Impressum mit — und umgekehrt.
+
+Tragende Anker: **wissenschaftliche** und **unterrichtende** Tätigkeit
+(§ 18 Abs. 1 Nr. 1 Satz 2 EStG) sowie zwei Berufsbilder — **Psychologe**
+(kein Katalogberuf, greift über „ähnliche Berufe") und
+**Wirtschaftsinformatiker** (Anschluss an den Katalogberuf Ingenieur über
+„ähnliche Berufe"; Dr. rer. nat. stützt zusätzlich den Wissenschafts-Anker).
 
 Diese Formulierungen bewusst so — nicht „glattziehen":
 
@@ -101,7 +120,7 @@ Diese Formulierungen bewusst so — nicht „glattziehen":
 | „systemisches Coaching" als Angebots-Headline | „psychologisch fundiert", „Psychologe (M.Sc.)" | BMWK nennt systemisches Coaching explizit als Beispiel für *kein* schulmäßiges Programm → nicht unterrichtend. (In der Bio als Ausbildungs-*Faktum* ok.) |
 | „wir", Team-/Agentur-Sprache | „ich" | Freiberuflichkeit ist höchstpersönlich (§ 18 Abs. 1 Nr. 1 Satz 3: leitend + eigenverantwortlich) |
 | Preise, Pakete, Staffeln, „jetzt buchen", Shop | Anfrage per E-Mail | Produkt-/Handels-Anmutung |
-| „praxisorientierte Beratung" | Interventionsdesign, Evaluation, Feldexperiment | *Wissenschaftlich* wird verneint, wenn es bloß praxisorientierte Wissensvermittlung/Beratung ist |
+| „praxisorientierte Beratung", „Tipps", „Best Practices" (Wort „Beratung" allein ist ok, s.o.) | Interventionsdesign, Evaluation, Feldexperiment | *Wissenschaftlich* wird verneint, wenn es bloß praxisorientierte Wissensvermittlung/Beratung ist |
 
 Aktiv drin lassen: bei Workshops die Worte **Curriculum, Lernziele, eigenes
 Material** (= „schulmäßiges Programm", das Kriterium für unterrichtende
