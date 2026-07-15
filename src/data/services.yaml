@@ -1,16 +1,23 @@
 # ============================================================
 # services.yaml — Freiberufliches Angebot. EN/DE nebeneinander.
+#
+# WORTWAHL IST HIER STEUERLICH RELEVANT — siehe CLAUDE.md,
+# Abschnitt „Freiberuflichkeit". Kurz: Berufsbild (Psychologe/
+# Wissenschaftler) und Lehre nach vorn, „individuelles Programm",
+# Produkt-/Paket-Sprache und „wir" raus.
 # ============================================================
 
 intro:
   en: >-
     I work with organizations that want to understand how people actually
     decide — and how to design technology, products, and AI systems
-    accordingly.
+    accordingly. Everything here I do personally, as a psychologist and
+    researcher.
   de: >-
     Ich arbeite mit Organisationen, die verstehen wollen, wie Menschen
     tatsächlich entscheiden — und wie man Technologie, Produkte und
-    KI-Systeme entsprechend gestaltet.
+    KI-Systeme entsprechend gestaltet. Alles hier halte ich persönlich, als
+    Psychologe und Wissenschaftler.
 
 services:
   - id: keynotes
@@ -20,12 +27,12 @@ services:
     description:
       en: >-
         Evidence-based talks on behavioral design, digital nudging, and how
-        AI shapes human decision-making — engaging for executive audiences,
-        grounded in current research.
+        AI shapes human decision-making — drawn from my own research and the
+        current literature, made accessible for executive audiences.
       de: >-
         Evidenzbasierte Vorträge zu Behavioral Design, digitalem Nudging und
-        dem Einfluss von KI auf menschliches Entscheiden — zugänglich für
-        Führungskräfte, fundiert in aktueller Forschung.
+        dem Einfluss von KI auf menschliches Entscheiden — aus der eigenen
+        Forschung und der aktuellen Literatur, zugänglich für Führungskräfte.
 
   - id: workshops
     title:
@@ -33,12 +40,17 @@ services:
       de: Workshops & Executive Education
     description:
       en: >-
-        Hands-on formats on design thinking, behavioral design, and working
-        with AI — from half-day sessions to multi-day executive programs.
+        Teaching for practitioners: design thinking, behavioral design, and
+        working with AI — from half-day sessions to multi-day executive
+        programs, each with its own curriculum, defined learning objectives,
+        and material I write myself. Most recently in the Executive MBA at
+        the University of St. Gallen.
       de: >-
-        Praxisformate zu Design Thinking, Behavioral Design und dem Arbeiten
-        mit KI — vom Halbtages-Workshop bis zum mehrtägigen
-        Executive-Programm.
+        Lehre für die Praxis: Design Thinking, Behavioral Design und das
+        Arbeiten mit KI — vom Halbtages-Workshop bis zum mehrtägigen
+        Executive-Programm, jeweils mit eigenem Curriculum, definierten
+        Lernzielen und selbst geschriebenem Material. Zuletzt im Executive
+        MBA der Universität St. Gallen.
 
   - id: coaching
     title:
@@ -46,15 +58,17 @@ services:
       de: Executive Coaching
     description:
       en: >-
-        Coaching for individuals and teams — psychologically grounded
-        (trained psychologist, systemic approach), strictly confidential,
-        and focused on what actually shifts behavior: patterns, context, and
-        small experiments between sessions.
+        Coaching for individuals and teams, grounded in psychology: I am a
+        psychologist (M.Sc.) and behavioral researcher, and I work from what
+        the evidence says about how people change — patterns, context, and
+        what a situation makes easy or hard. Strictly confidential. Not
+        therapy, not life coaching.
       de: >-
-        Coaching für Einzelpersonen und Teams — psychologisch fundiert
-        (Psychologe, systemischer Ansatz), streng vertraulich und fokussiert
-        auf das, was Verhalten wirklich verändert: Muster, Kontext und kleine
-        Experimente zwischen den Sitzungen.
+        Coaching für Einzelpersonen und Teams, psychologisch fundiert: Ich
+        bin Psychologe (M.Sc.) und Verhaltensforscher und arbeite mit dem,
+        was die Evidenz über Veränderung hergibt — Muster, Kontext und die
+        Frage, was eine Situation leicht oder schwer macht. Streng
+        vertraulich. Keine Therapie, kein Life-Coaching.
 
   - id: advisory
     title:
@@ -62,14 +76,15 @@ services:
       de: Beratung
     description:
       en: >-
-        Scientific advice for teams building products that change behavior:
-        intervention design, choice architecture reviews, and rigorous
-        evaluation — including field experiments.
+        Scientific advice for teams whose products change behavior:
+        intervention design grounded in the literature, choice architecture
+        reviews, and rigorous evaluation — up to preregistered field
+        experiments.
       de: >-
         Wissenschaftliche Begleitung für Teams, deren Produkte Verhalten
-        verändern sollen: Interventionsdesign, Review von
-        Entscheidungsarchitekturen und saubere Evaluation — bis hin zum
-        Feldexperiment.
+        verändern sollen: Interventionsdesign auf Basis der Literatur, Review
+        von Entscheidungsarchitekturen und saubere Evaluation — bis hin zum
+        präregistrierten Feldexperiment.
 
 # Organisationen, für die Vincent gesprochen/gearbeitet hat (Social Proof, Quelle: CV).
 engagements:

@@ -81,8 +81,38 @@ sprachneutral (keine Übersetzung nötig).
   verspricht null Drittdienste, keine Cookies, kein Tracking).
 - Coaching-Angebot: „Executive Coaching" gemäß Praxis-Aufbau-Plan
   (~/Downloads/praxis-aufbau.html, Stand 07/2026): Führungskräfte-Fokus,
-  psychologisch fundiert/systemisch, KEIN generisches Life-Coaching,
+  psychologisch fundiert, KEIN generisches Life-Coaching,
   KEINE Heilkunde-/Therapie-Sprache vor Approbation (erwartet ~Okt 2027+).
+
+## Freiberuflichkeit — Wortwahl-Guardrails (nicht aufweichen!)
+
+Vincent ist freiberuflich angemeldet (§ 18 EStG), nicht gewerblich. Die
+Website entscheidet das **nicht** — die tatsächliche Tätigkeit tut das —,
+aber sie ist Außendarstellung, die ein Prüfer liest. Sie darf der
+Freiberuflichkeit nicht widersprechen. Tragende Anker: **wissenschaftliche**
+und **unterrichtende** Tätigkeit (§ 18 Abs. 1 Nr. 1 Satz 2 EStG) sowie das
+**Berufsbild Psychologe** (kein Katalogberuf, greift über „ähnliche Berufe").
+
+Diese Formulierungen bewusst so — nicht „glattziehen":
+
+| Nicht schreiben | Sondern | Warum |
+|---|---|---|
+| „individuelles Programm", „auf dich zugeschnittenes Konzept" | Wissen/Verfahren vermitteln, Muster, Kontext | BMWK definiert genau das als *beratend* = gewerblich |
+| „systemisches Coaching" als Angebots-Headline | „psychologisch fundiert", „Psychologe (M.Sc.)" | BMWK nennt systemisches Coaching explizit als Beispiel für *kein* schulmäßiges Programm → nicht unterrichtend. (In der Bio als Ausbildungs-*Faktum* ok.) |
+| „wir", Team-/Agentur-Sprache | „ich" | Freiberuflichkeit ist höchstpersönlich (§ 18 Abs. 1 Nr. 1 Satz 3: leitend + eigenverantwortlich) |
+| Preise, Pakete, Staffeln, „jetzt buchen", Shop | Anfrage per E-Mail | Produkt-/Handels-Anmutung |
+| „praxisorientierte Beratung" | Interventionsdesign, Evaluation, Feldexperiment | *Wissenschaftlich* wird verneint, wenn es bloß praxisorientierte Wissensvermittlung/Beratung ist |
+
+Aktiv drin lassen: bei Workshops die Worte **Curriculum, Lernziele, eigenes
+Material** (= „schulmäßiges Programm", das Kriterium für unterrichtende
+Tätigkeit). Bei Coaching den Satz **„Keine Therapie, kein Life-Coaching"**
+(schützt doppelt: gegen Heilkunde-Werbung ohne Approbation *und* gegen die
+Life-Coaching-Schublade). Berufsangaben stehen im Impressum (noindex).
+
+Menura Audio (gewerblich) darf in der Bio bleiben: Vincents Freiberuflichkeit
+ist ein Einzelunternehmen, da gibt es keine Abfärbung (§ 15 Abs. 3 Nr. 1 EStG
+trifft nur Personengesellschaften) — nur getrennt aufzeichnen. Menura aber
+NIE als Teil des eigenen Angebots darstellen.
 
 ## Lokal entwickeln
 
