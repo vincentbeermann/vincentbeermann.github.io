@@ -82,7 +82,7 @@ sprachneutral (keine Übersetzung nötig).
 - Coaching-Angebot: „Executive Coaching" gemäß Praxis-Aufbau-Plan
   (~/Downloads/praxis-aufbau.html, Stand 07/2026): Führungskräfte-Fokus,
   psychologisch fundiert, KEIN generisches Life-Coaching,
-  KEINE Heilkunde-/Therapie-Sprache vor Approbation (erwartet ~Okt 2027+).
+  KEINE Heilkunde-/Therapie-Sprache vor Approbation (erwartet Ende 2029/Anfang 2030, IMPP-Prüfung Herbst 2029; Quelle: admin-psych/IST/Modul 0/ist-ausbildungsuebersicht-beermann.tex).
 
 ## Psychotherapie-Status in der Bio (Titelrecht)
 
@@ -100,7 +100,7 @@ Ausbildung unter Supervision statt, nicht als Leistung dieser Website. Deshalb
 steht „Keine Therapie, kein Life-Coaching" auf der Coaching-Karte, und der
 Status steht in der Bio (Faktum über ihn) statt bei den Angeboten.
 
-Nach der Approbation (~Okt 2027+) ist das ein echter Umbau, kein Textfix:
+Nach der Approbation (erwartet Ende 2029/Anfang 2030) ist das ein echter Umbau, kein Textfix:
 Heilkunde ist umsatzsteuerfrei (§ 4 Nr. 14 UStG), es kommen Berufsrecht und
 Kammerangaben ins Impressum, und ein Behandlungsangebot wäre dann zulässig.
 Dann neu aufsetzen, nicht nachjustieren.
